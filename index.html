@@ -5,26 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Biografía de Macacha Güemes</title>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      scroll-behavior: smooth;
-      overflow: hidden;
-    }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+  overflow-y: auto;                   /* ← permitir scroll vertical */
+  scroll-snap-type: y mandatory;      /* ← scroll por pantallas */
+  -webkit-overflow-scrolling: touch;  /* ← suavidad en iOS */
+}
 
-    .section {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background: linear-gradient(135deg, #ffe6e6, #fff4f4);
-      padding: 2rem;
-      box-sizing: border-box;
-      text-align: center;
-      transition: transform 0.7s ease-in-out;
-    }
+.section {
+  height: 100svh;                     /* ← mejor en móviles que 100vh */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(135deg, #ffe6e6, #fff4f4);
+  padding: 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  scroll-snap-align: start;           /* ← cada sección “encastra” */
+}
 
     .section h1 {
       font-size: 5rem;
@@ -159,5 +162,8 @@
       scrollToSection(0);
     };
   </script>
+</body>
+</html>
+
 </body>
 </html>
