@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biografía de Macacha Güemes</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+      overflow: hidden;
+    }
+
+    .section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, #ffe6e6, #fff4f4);
+      padding: 2rem;
+      box-sizing: border-box;
+      text-align: center;
+      transition: transform 0.7s ease-in-out;
+    }
+
+    .section h1 {
+      font-size: 5rem;
+      color: #6d071a;
+      margin-bottom: 1rem;
+    }
+
+    .section h2 {
+      font-size: 3rem;
+      color: #6d071a;
+      margin-bottom: 1rem;
+    }
+
+    .section p {
+      font-size: 1.4rem;
+      max-width: 800px;
+    }
+
+    .section iframe {
+      margin-top: 1.5rem;
+      max-width: 90%;
+      height: 400px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .section.header-section {
+      background: linear-gradient(135deg, #6d071a, #9e1a2f);
+      color: white;
+    }
+
+    .section.header-section h1 {
+      font-size: 6rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .section.header-section p {
+      font-size: 1.8rem;
+    }
+
+    footer {
+      background: #6d071a;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="sections">
+    <section class="section">
+      <h1>MUJERES CON ALMA DE PATRIA</h1>
+      <p><strong>Tema principal:</strong> Mujeres con alma de patria (Macacha Güemes)</p>
+      <p><strong>Profesora:</strong> Patricia Aguirre y Laura Marquez </p>
+      <p><strong>Materia:</strong> Historia y Geografia</p>
+      <p><strong>Integrantes del grupo:</strong> Gonzalo Andon, Federico Porta, Giovanni Balladares, Jairo Samudio, Joel Garay y Benjamin Correa</p>
+    </section>
+
+    <section class="section header-section">
+      <h1>Macacha Güemes</h1>
+      <p>Una mujer valiente que dejó huella en la historia argentina</p>
+    </section>
+
+    <section class="section">
+      <h2>1) ¿Dónde y cuándo nació?</h2>
+      <p>Macacha Güemes nació el <strong>11 de diciembre de 1787</strong> en <strong>Salta</strong>, entonces parte del Virreinato del Río de la Plata. Salta fue un territorio clave en la defensa del norte argentino durante las guerras por la independencia. Desde muy joven, su entorno familiar le inculcó los valores patrióticos que más tarde marcarían su vida.</p>
+    </section>
+
+    <section class="section">
+      <h2>2) ¿Cómo fue su infancia y su adolescencia?</h2>
+      <p>Macacha creció en una familia criolla acomodada con acceso a una educación que incluía lectura, escritura y música. Desde pequeña mostró interés por la política y la defensa de su tierra. A los 16 años se casó y tuvo una hija, pero continuó colaborando activamente con la causa patriótica. También acompañaba a su hermano Martín a cabalgar, conociendo la geografía del lugar, lo cual le serviría para tareas de espionaje más adelante.</p>
+    </section>
+
+    <section class="section">
+      <h2>3) ¿De qué forma se destacó en la construcción y defensa de nuestra patria?</h2>
+      <p>Fue una de las principales colaboradoras de su hermano Martín Miguel de Güemes. Organizó logística, espió y participó en negociaciones políticas claves como el Pacto de Cerrillos. Su valentía y compromiso fueron esenciales para frenar el avance realista en el norte argentino. Además, lideró tareas de inteligencia y formó parte del movimiento de mujeres que apoyaban al ejército desde las sombras.</p>
+    </section>
+
+    <section class="section">
+      <h2>4) ¿Cuándo y dónde murió?</h2>
+      <p>Macacha Güemes falleció en <strong>1866</strong> en su ciudad natal, Salta. Después de años de lucha, se dedicó a preservar la memoria de los héroes independentistas. Hoy es recordada como un símbolo del coraje y la entrega de las mujeres en la historia argentina. Su figura comenzó a tener más reconocimiento en los últimos años gracias a investigaciones históricas y homenajes públicos.</p>
+    </section>
+
+    <section class="section">
+      <h2>Info Extra</h2>
+      <p>Para más información sobre Macacha Güemes, podés ver el siguiente video:</p>
+      <iframe src="https://www.youtube.com/embed/CqD3FdHQvYM" allowfullscreen></iframe>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 - Página educativa sobre Macacha Güemes</p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll(".section");
+    let index = 0;
+    let scrolling = false;
+
+    function scrollToSection(i) {
+      if (i >= 0 && i < sections.length) {
+        scrolling = true;
+        sections[i].scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => scrolling = false, 800);
+      }
+    }
+
+    window.addEventListener("wheel", (e) => {
+      if (scrolling) return;
+      if (e.deltaY > 0 && index < sections.length - 1) {
+        index++;
+        scrollToSection(index);
+      } else if (e.deltaY < 0 && index > 0) {
+        index--;
+        scrollToSection(index);
+      }
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (scrolling) return;
+      if ((e.key === "ArrowDown" || e.key === "PageDown") && index < sections.length - 1) {
+        index++;
+        scrollToSection(index);
+      } else if ((e.key === "ArrowUp" || e.key === "PageUp") && index > 0) {
+        index--;
+        scrollToSection(index);
+      }
+    });
+
+    window.onload = () => {
+      scrollToSection(0);
+    };
+  </script>
+</body>
+</html>
